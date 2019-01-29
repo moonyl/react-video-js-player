@@ -1,9 +1,9 @@
 {
-  "name": "react-video-js-player",
+  "name": "@csod-oss/react-video-js-player",
   "version": "1.1.1",
   "description": "React wrapper for VideoJS",
   "homepage": "https://github.com/karan101292/react-video-js-player#readme",
-  "repository": "https://github.com/karan101292/react-video-js-player",
+  "repository": "https://github.com/csod-oss/react-video-js-player.git",
   "main": "build/index.js",
   "scripts": {
     "start": "webpack --watch --mode development",
