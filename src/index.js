@@ -4,9 +4,22 @@ import Controls from './Controls.json';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
 
+let prevDate;
+let repeatCount = 0;
 class VideoPlayer extends Component {
-    playerId = `video-player-${(new Date) * 1}`
-    player = {};
+        super(props);
+        
+        let idPostfix = (new Date) * 1
+        if (prevDate !== idPostfix)    {
+            prevDate = idPostfix;
+            repeatCount = 0;
+        }
+        else {
+            repeatCount++;
+        }
+        this.playerId = `video-player-${idPostfix + '-' + repeatCount}`       
+        this.player = {};    
+    }
     componentDidMount() {
         this.init_player(this.props);
         this.init_player_events(this.props);
