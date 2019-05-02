@@ -7,6 +7,7 @@ import 'video.js/dist/video-js.css';
 let prevDate;
 let repeatCount = 0;
 class VideoPlayer extends Component {
+    constructor(props) {
         super(props);
         
         let idPostfix = (new Date) * 1
