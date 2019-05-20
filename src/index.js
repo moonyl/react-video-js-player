@@ -21,7 +21,7 @@ class VideoPlayer extends Component {
         this.playerId = `video-player-${idPostfix + '-' + repeatCount}`       
         this.player = {};    
     }
-    componentDidMount() {
+    componentDidMount() {        
         this.init_player(this.props);
         this.init_player_events(this.props);
     }
@@ -40,7 +40,6 @@ class VideoPlayer extends Component {
     init_player(props) {
         const playerOptions = this.generate_player_options(props);
         this.player = videojs(document.querySelector(`#${this.playerId}`), playerOptions);
-        this.player.src(props.src)
         this.player.poster(props.poster)
         this.set_controls_visibility(this.player, props.hideControls);
     }
@@ -69,11 +68,12 @@ class VideoPlayer extends Component {
         let position = 0;
 
         this.player.ready(() => {
+            debugger;
             props.onReady(this.player);
-            window.player = this.player;
+            window.player = this.player;            
         });
         this.player.on('play', () => {
-            props.onPlay(this.player.currentTime());
+            props.onPlay(this.player.currentTime());            
         });
         this.player.on('pause', () => {
             props.onPause(this.player.currentTime());
